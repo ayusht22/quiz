@@ -53,21 +53,14 @@ export default function Quiz() {
             setShowState("End");
         }
     }
-    const handleClick=(option)=>{
-     if(option==="option1"){
-      setAnsState("option1");
-      setColor("option1");
-      id1="b1";
-     
-     }
-    }
+ 
     return (
         
         <div className="Quiz">
-           
+            {color==="option1"?id1="b1":color==="option2"?id2="b2":color==="option3"?id3="b3":id3=""}
             <h1 id="q">{questions[currentQ].question}</h1>
             <div className="options">
-                <button  id={id1} onClick={()=>{handleClick("option1")}}>{questions[currentQ].option1}</button>
+                <button  id={id1} onClick={()=>{setAnsState("option1");setColor("option1")}}>{questions[currentQ].option1}</button>
                 <button  id={id2} onClick={()=>{setAnsState("option2");setColor("option2")}}>{questions[currentQ].option2}</button>
                 <button  id={id3} onClick={()=>{setAnsState("option3");setColor("option3")}}>{questions[currentQ].option3}</button>
             </div>
